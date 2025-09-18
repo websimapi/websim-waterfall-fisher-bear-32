@@ -152,6 +152,14 @@ export function createScenery() {
     const groundR = createVoxel( 7, groundY - groundThickness/2, -8, 6, groundThickness, 24, grassMat);
     group.add(groundL, groundR);
 
+    // Add rock walls underneath the grass shelves to connect them to the mountains
+    const groundWallHeight = 22; // Match river bank wall height for consistency
+    const groundWallY = (groundY - groundThickness / 2) - (groundWallHeight / 2); // Position it right under the grass
+    
+    const groundWallL = createVoxel(-7, groundWallY, -8, 6, groundWallHeight, 24, rockMat);
+    const groundWallR = createVoxel(7, groundWallY, -8, 6, groundWallHeight, 24, rockMat);
+    group.add(groundWallL, groundWallR);
+
     // Dynamic Tree and Bush Placement
     const bankWidth = 6;
     const bankLength = 24;
